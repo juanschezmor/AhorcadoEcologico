@@ -155,7 +155,7 @@ const Ahorcado = () => {
 
   return (
     <div className="container">
-      <div className="header">
+      <div className="h-1/5 bg-black">
         <h1>Adivina la palabra ecológica</h1>
       </div>
       <div className="palabra">
@@ -185,7 +185,7 @@ const Ahorcado = () => {
       <div className="cosas">
         <RenderResultado />
         <img
-          className="imagen"
+          className="imagen "
           src={
             fallos === 0
               ? world0
