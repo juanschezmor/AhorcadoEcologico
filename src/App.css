@@ -1,0 +1,112 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  height: 100vh;
+}
+.App {
+  height: 100vh;
+}
+.palabra {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  height: 25%;
+}
+.letra {
+  background-color: #6d3916;
+  border-radius: 5px;
+  padding: 10kpx;
+  width: 20%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: x-large;
+}
+.letra-pequena {
+  width: 35%;
+  height: 50%;
+}
+.letra-mediana {
+  width: 30%;
+  height: 25%;
+}
+.letra-grande {
+  width: 20%;
+  height: 30%;
+}
+p {
+  color: #6d3916;
+}
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.cosas {
+  height: 15%;
+  font-size: xx-large;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header {
+  height: 20%;
+}
+.imagen {
+  width: 30%;
+  max-width: 100%;
+  height: auto;
+}
+.datos {
+  height: 10%;
+  display: flex;
+  flex-direction: row;
+}
+.intentos {
+  width: 50%;
+}
+.letrasincorrectas {
+  width: 50%;
+}
+button {
+  background-color: #a26924;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition-duration: 0.4s;
+}
+
+button:hover {
+  background-color: #6d3916;
+  color: white;
+}
+input[type="text"] {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  color: black;
+}
+
+input[type="text"]:focus {
+  border: 2px solid #a26924;
+  background-color: #fff;
+  outline: none;
+}
