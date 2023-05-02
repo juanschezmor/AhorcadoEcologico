@@ -154,9 +154,9 @@ const Ahorcado = () => {
   };
 
   return (
-    <div className="container">
-      <div className="h-1/5 bg-black">
-        <h1>Adivina la palabra ecológica</h1>
+    <div className="contenedor">
+      <div className="header">
+        <h1 className="font-bold text-2xl">Adivina la palabra ecológica</h1>
       </div>
       <div className="palabra">
         {palabraAdivinada.map((letra, index) => (
@@ -174,52 +174,68 @@ const Ahorcado = () => {
           </div>
         ))}
       </div>
-      <div className="datos">
-        <div className="intentos">
-          <p>Intentos restantes: {6 - fallos}</p>
+      <div className="content">
+        <div className="datos ">
+          <div className="intentos">
+            <p className="text-2xl">Intentos restantes: {6 - fallos}</p>
+          </div>
+          <div className="letrasincorrectas">
+            <p className="text-2xl">
+              Letras incorrectas: {letrasFalladas.join(", ")}
+            </p>
+          </div>
         </div>
-        <div className="letrasincorrectas">
-          <p>Letras incorrectas: {letrasFalladas.join(", ")}</p>
+        <div className="cosas">
+          <RenderResultado />
+          <img
+            className="imagen "
+            src={
+              fallos === 0
+                ? world0
+                : fallos === 1
+                ? world1
+                : fallos === 2
+                ? world2
+                : fallos === 3
+                ? world3
+                : fallos === 4
+                ? world4
+                : fallos === 5
+                ? world5
+                : world6
+            }
+            alt="mundo"
+          />
         </div>
-      </div>
-      <div className="cosas">
-        <RenderResultado />
-        <img
-          className="imagen "
-          src={
-            fallos === 0
-              ? world0
-              : fallos === 1
-              ? world1
-              : fallos === 2
-              ? world2
-              : fallos === 3
-              ? world3
-              : fallos === 4
-              ? world4
-              : fallos === 5
-              ? world5
-              : world6
-          }
-          alt="mundo"
-        />
-      </div>
-      <div className="cosas">
-        <input
-          type="text"
-          maxLength="1"
-          onChange={ManejarInputLetra}
-          value={letraIntentada}
-        />
-        <button onClick={ManejarIntento}>Ingresar letra</button>
-      </div>
-      <div className="cosas">
-        <input
-          type="text"
-          onChange={ManejarInputPalabra}
-          value={palabraIngresada}
-        />
-        <button onClick={ManejarPalabra}>Ingresar palabra</button>
+        <div className="cosas">
+          <input
+            type="text"
+            maxLength="1"
+            onChange={ManejarInputLetra}
+            value={letraIntentada}
+            className="w-1/2 py-3 px-5 my-2 border-2 border-gray-300 rounded-md bg-f8f8f8 text-black text-base focus:border-a26924 focus:bg-white outline-none"
+          />
+          <button
+            className="bg-[#a26924] border-none text-white py-3 px-6 text-center no-underline inline-block text-base my-2 mx-1 cursor-pointer rounded-lg transition duration-400 hover:bg-[#6d3916] hover:text-white"
+            onClick={ManejarIntento}
+          >
+            Ingresar letra
+          </button>
+        </div>
+        <div className="cosas">
+          <input
+            type="text"
+            onChange={ManejarInputPalabra}
+            value={palabraIngresada}
+            className="w-1/2 py-3 px-5 my-2 border-2 border-gray-300 rounded-md bg-f8f8f8 text-black text-base focus:border-a26924 focus:bg-white outline-none"
+          />
+          <button
+            className="bg-[#a26924] border-none text-white py-3 px-6 text-center no-underline inline-block text-base my-2 mx-1 cursor-pointer rounded-lg transition duration-400 hover:bg-[#6d3916] hover:text-white"
+            onClick={ManejarPalabra}
+          >
+            Ingresar palabra
+          </button>
+        </div>
       </div>
     </div>
   );

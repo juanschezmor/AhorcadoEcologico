@@ -14,7 +14,7 @@
   display: flex;
   flex-direction: row;
   gap: 10px;
-  height: 25%;
+  height: 20%;
 }
 .letra {
   background-color: #6d3916;
@@ -42,11 +42,11 @@
 p {
   color: #6d3916;
 }
-.container {
+.contenedor {
+  width: 80%;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 .cosas {
   height: 15%;
@@ -56,7 +56,7 @@ p {
   align-items: center;
 }
 .header {
-  height: 20%;
+  height: 10%;
 }
 .imagen {
   width: 30%;
@@ -64,7 +64,7 @@ p {
   height: auto;
 }
 .datos {
-  height: 10%;
+  height: 5%;
   display: flex;
   flex-direction: row;
 }
@@ -109,4 +109,12 @@ input[type="text"]:focus {
   border: 2px solid #a26924;
   background-color: #fff;
   outline: none;
+}
+.content {
+  height: 50%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
