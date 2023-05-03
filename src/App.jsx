@@ -2,11 +2,7 @@ import Ahorcado from "./components/Ahorcado";
 import "./App.css";
 
 function App() {
-  return (
-    <div>
-      <Ahorcado />
-    </div>
-  );
+  return <Ahorcado />;
 }
 
 export default App;

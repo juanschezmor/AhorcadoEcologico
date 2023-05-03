@@ -154,7 +154,7 @@ const Ahorcado = () => {
   };
 
   return (
-    <div className="contenedor">
+    <div className="contenedor w-3/4 sm:w-1/3 sm:justify-center">
       <div className="header">
         <h1 className="font-bold text-2xl">Adivina la palabra ecológica</h1>
       </div>
@@ -177,15 +177,15 @@ const Ahorcado = () => {
       <div className="content">
         <div className="datos ">
           <div className="intentos">
-            <p className="text-2xl">Intentos restantes: {6 - fallos}</p>
+            <p className="text-md  text-white">Intentos restantes:</p>
+            <p className="text-white">{6 - fallos}</p>
           </div>
           <div className="letrasincorrectas">
-            <p className="text-2xl">
-              Letras incorrectas: {letrasFalladas.join(", ")}
-            </p>
+            <p className="text-md text-white mt-2 mx-3 ">Letras incorrectas:</p>
+            <p className="text-white"> {letrasFalladas.join(", ")}</p>
           </div>
         </div>
-        <div className="cosas">
+        <div className="cosasimagen">
           <RenderResultado />
           <img
             className="imagen "
