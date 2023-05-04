@@ -125,7 +125,7 @@ const Ahorcado = () => {
         <>
           <Confetti />
           <Modal open={open} onClose={onCloseModalFinish} center>
-            <div>
+            <div className="w-1/2">
               <p>¡Ganaste! La palabra correcta era "{palabra}".</p>
               <button className="botonjugar" onClick={seleccionarPalabra}>
                 Volver a jugar
@@ -137,15 +137,19 @@ const Ahorcado = () => {
     } else if (fallos === 6) {
       return (
         <Modal open={open} onClose={onCloseModalFinish} center>
-          <p>¡Perdiste! La palabra correcta era "{palabra}".</p>
-          <button onClick={seleccionarPalabra}>Volver a jugar</button>
+          <div className="w-1/2">
+            <p>¡Perdiste! La palabra correcta era "{palabra}".</p>
+            <button className="botonjugar" onClick={seleccionarPalabra}>
+              Volver a jugar
+            </button>
+          </div>
         </Modal>
       );
     }
   };
 
   return (
-    <div className="contenedor w-3/4 sm:w-96 sm:justify-center">
+    <div className="contenedor w-full sm:w-96 sm:justify-center">
       <div className="header">
         <h1 className="font-bold text-2xl">Adivina la palabra ecológica</h1>
       </div>
