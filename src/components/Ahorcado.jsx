@@ -48,7 +48,8 @@ const Ahorcado = () => {
   const [open, setOpen] = useState(false);
 
   const onOpenModal = () => setOpen(true);
-  const onCloseModal = () => {
+
+  const onCloseModalFinish = () => {
     seleccionarPalabra();
     setOpen(false);
   };
@@ -66,30 +67,38 @@ const Ahorcado = () => {
     setFallos(0);
     setletrasFalladas([]);
     setpalabraIngresada("");
+    console.log(palabraSeleccionada);
   };
 
   const ManejarIntento = () => {
     console.log(fallos);
-    if (letraIntentada.length === 1) {
-      const nuevaPalabraAdivinada = palabraAdivinada.map((letra, index) => {
-        if (palabra[index] === letraIntentada) {
-          return letraIntentada;
-        } else {
-          return letra;
+    if (
+      letrasFalladas.includes(letraIntentada) ||
+      palabraAdivinada.includes(letraIntentada)
+    ) {
+      alert("Ya intentaste con esa letra");
+    } else {
+      if (letraIntentada.length === 1) {
+        const nuevaPalabraAdivinada = palabraAdivinada.map((letra, index) => {
+          if (palabra[index] === letraIntentada) {
+            return letraIntentada;
+          } else {
+            return letra;
+          }
+        });
+
+        if (palabraAdivinada.join("") === nuevaPalabraAdivinada.join("")) {
+          setletrasFalladas((letrasFalladas) => [
+            ...letrasFalladas,
+            letraIntentada,
+          ]);
+          setFallos(fallos + 1);
         }
-      });
 
-      if (palabraAdivinada.join("") === nuevaPalabraAdivinada.join("")) {
-        setletrasFalladas((letrasFalladas) => [
-          ...letrasFalladas,
-          letraIntentada,
-        ]);
-        setFallos(fallos + 1);
+        setPalabraAdivinada(nuevaPalabraAdivinada);
+        setLetraIntentada("");
+        setIntentos(intentos + 1);
       }
-
-      setPalabraAdivinada(nuevaPalabraAdivinada);
-      setLetraIntentada("");
-      setIntentos(intentos + 1);
     }
   };
 
@@ -115,15 +124,19 @@ const Ahorcado = () => {
       return (
         <>
           <Confetti />
-          <Modal open={open} onClose={onCloseModal} center>
-            <p>¡Ganaste! La palabra correcta era "{palabra}".</p>
-            <button onClick={seleccionarPalabra}>Volver a jugar</button>
+          <Modal open={open} onClose={onCloseModalFinish} center>
+            <div>
+              <p>¡Ganaste! La palabra correcta era "{palabra}".</p>
+              <button className="botonjugar" onClick={seleccionarPalabra}>
+                Volver a jugar
+              </button>
+            </div>
           </Modal>
         </>
       );
     } else if (fallos === 6) {
       return (
-        <Modal open={open} onClose={onCloseModal} center>
+        <Modal open={open} onClose={onCloseModalFinish} center>
           <p>¡Perdiste! La palabra correcta era "{palabra}".</p>
           <button onClick={seleccionarPalabra}>Volver a jugar</button>
         </Modal>
