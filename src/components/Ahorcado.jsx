@@ -115,6 +115,7 @@ const Ahorcado = () => {
     } else {
       setFallos(fallos + 1);
     }
+    setpalabraIngresada("");
   };
 
   const RenderResultado = () => {
